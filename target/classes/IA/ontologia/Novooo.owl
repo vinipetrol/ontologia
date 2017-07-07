@@ -1,0 +1,475 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/eduardo/ontologies/2017/6/untitled-ontology-6"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/eduardo/ontologies/2017/6/untitled-ontology-6">
+    <Prefix name="" IRI="http://www.semanticweb.org/eduardo/ontologies/2017/6/untitled-ontology-6#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Investidor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Investimento_InicialGrande"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#valorInvestimentoInicial"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Prazo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Conservador"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tolerancia_ao_Risco"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#valorRisco"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Investimento_InicialPequeno"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Karol"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#temRisco"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classe_Social"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Investimento_Inicial"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PrazoMedio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tipo_de_Investidor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rodrigo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RentabilidadePequena"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pedrinho"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Investimento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PrazoPequeno"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PrazoGrande"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classe_Baixa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pequena_Tolerancia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Risco"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Investimento_InicialMedio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Poupança"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Moderado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RiscoPequeno"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#valorRentabilidade"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#temPrazo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classe_Alta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Agressivo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#valorPrazo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RiscoMedio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RentabilidadeGrande"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tipos_de_Investimento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classe_Media"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Alta_Tolerancia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RiscoGrande"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rentabilidade"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Propriedades_do_Investimento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RentabilidadeMedia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Caracteristicas_do_Investidor"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Agressivo"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Investimento_InicialGrande"/>
+            <Class IRI="#PrazoGrande"/>
+            <Class IRI="#RentabilidadeGrande"/>
+            <Class IRI="#RiscoGrande"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Conservador"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#RiscoPequeno"/>
+            <ObjectUnionOf>
+                <Class IRI="#Investimento_InicialMedio"/>
+                <Class IRI="#Investimento_InicialPequeno"/>
+            </ObjectUnionOf>
+            <ObjectUnionOf>
+                <Class IRI="#PrazoMedio"/>
+                <Class IRI="#PrazoPequeno"/>
+            </ObjectUnionOf>
+            <ObjectUnionOf>
+                <Class IRI="#RentabilidadeMedia"/>
+                <Class IRI="#RentabilidadePequena"/>
+            </ObjectUnionOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Investimento_InicialGrande"/>
+        <DataHasValue>
+            <DataProperty IRI="#valorInvestimentoInicial"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">grande</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Investimento_InicialMedio"/>
+        <DataHasValue>
+            <DataProperty IRI="#valorInvestimentoInicial"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">medio</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Investimento_InicialPequeno"/>
+        <DataHasValue>
+            <DataProperty IRI="#valorInvestimentoInicial"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">pequeno</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Moderado"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#RiscoMedio"/>
+            <ObjectUnionOf>
+                <Class IRI="#Investimento_InicialMedio"/>
+                <Class IRI="#Investimento_InicialPequeno"/>
+            </ObjectUnionOf>
+            <ObjectUnionOf>
+                <Class IRI="#PrazoGrande"/>
+                <Class IRI="#PrazoMedio"/>
+            </ObjectUnionOf>
+            <ObjectUnionOf>
+                <Class IRI="#RentabilidadeGrande"/>
+                <Class IRI="#RentabilidadeMedia"/>
+            </ObjectUnionOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Poupança"/>
+        <ObjectIntersectionOf>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#temPrazo"/>
+                <Class IRI="#PrazoMedio"/>
+            </ObjectAllValuesFrom>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#temRisco"/>
+                <Class IRI="#RiscoPequeno"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PrazoGrande"/>
+        <DataHasValue>
+            <DataProperty IRI="#valorPrazo"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">grande</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PrazoMedio"/>
+        <DataHasValue>
+            <DataProperty IRI="#valorPrazo"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">medio</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PrazoPequeno"/>
+        <DataHasValue>
+            <DataProperty IRI="#valorPrazo"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">pequeno</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RentabilidadeGrande"/>
+        <DataHasValue>
+            <DataProperty IRI="#valorRentabilidade"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">grande</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RentabilidadeMedia"/>
+        <DataHasValue>
+            <DataProperty IRI="#valorRentabilidade"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">medio</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RentabilidadePequena"/>
+        <DataHasValue>
+            <DataProperty IRI="#valorRentabilidade"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">pequeno</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RiscoGrande"/>
+        <DataHasValue>
+            <DataProperty IRI="#valorRisco"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">grande</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RiscoMedio"/>
+        <DataHasValue>
+            <DataProperty IRI="#valorRisco"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">medio</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RiscoPequeno"/>
+        <DataHasValue>
+            <DataProperty IRI="#valorRisco"/>
+            <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">pequeno</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Agressivo"/>
+        <Class IRI="#Tipo_de_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Alta_Tolerancia"/>
+        <Class IRI="#Tolerancia_ao_Risco"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Caracteristicas_do_Investidor"/>
+        <Class IRI="#Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classe_Alta"/>
+        <Class IRI="#Classe_Social"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classe_Baixa"/>
+        <Class IRI="#Classe_Social"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classe_Media"/>
+        <Class IRI="#Classe_Social"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classe_Social"/>
+        <Class IRI="#Caracteristicas_do_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Conservador"/>
+        <Class IRI="#Tipo_de_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Investimento_Inicial"/>
+        <Class IRI="#Propriedades_do_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Investimento_InicialGrande"/>
+        <Class IRI="#Investimento_Inicial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Investimento_InicialMedio"/>
+        <Class IRI="#Investimento_Inicial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Investimento_InicialPequeno"/>
+        <Class IRI="#Investimento_Inicial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Moderado"/>
+        <Class IRI="#Tipo_de_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pequena_Tolerancia"/>
+        <Class IRI="#Tolerancia_ao_Risco"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Poupança"/>
+        <Class IRI="#Tipos_de_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prazo"/>
+        <Class IRI="#Propriedades_do_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PrazoGrande"/>
+        <Class IRI="#Prazo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PrazoMedio"/>
+        <Class IRI="#Prazo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PrazoPequeno"/>
+        <Class IRI="#Prazo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Propriedades_do_Investimento"/>
+        <Class IRI="#Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rentabilidade"/>
+        <Class IRI="#Propriedades_do_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RentabilidadeGrande"/>
+        <Class IRI="#Rentabilidade"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RentabilidadeMedia"/>
+        <Class IRI="#Rentabilidade"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RentabilidadePequena"/>
+        <Class IRI="#Rentabilidade"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Risco"/>
+        <Class IRI="#Propriedades_do_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiscoGrande"/>
+        <Class IRI="#Risco"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiscoMedio"/>
+        <Class IRI="#Risco"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RiscoPequeno"/>
+        <Class IRI="#Risco"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tipo_de_Investidor"/>
+        <Class IRI="#Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tipos_de_Investimento"/>
+        <Class IRI="#Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tolerancia_ao_Risco"/>
+        <Class IRI="#Caracteristicas_do_Investidor"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Alta_Tolerancia"/>
+        <Class IRI="#Pequena_Tolerancia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Classe_Alta"/>
+        <Class IRI="#Classe_Baixa"/>
+        <Class IRI="#Classe_Media"/>
+    </DisjointClasses>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valorPrazo"/>
+        <NamedIndividual IRI="#Karol"/>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">pequeno</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valorRisco"/>
+        <NamedIndividual IRI="#Karol"/>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">pequeno</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valorInvestimentoInicial"/>
+        <NamedIndividual IRI="#Pedrinho"/>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">grande</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valorPrazo"/>
+        <NamedIndividual IRI="#Pedrinho"/>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">grande</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valorRentabilidade"/>
+        <NamedIndividual IRI="#Pedrinho"/>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">grande</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valorRisco"/>
+        <NamedIndividual IRI="#Pedrinho"/>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">grande</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valorInvestimentoInicial"/>
+        <NamedIndividual IRI="#Rodrigo"/>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">medio</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valorPrazo"/>
+        <NamedIndividual IRI="#Rodrigo"/>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">medio</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valorRentabilidade"/>
+        <NamedIndividual IRI="#Rodrigo"/>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">medio</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valorRisco"/>
+        <NamedIndividual IRI="#Rodrigo"/>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">medio</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#temRisco"/>
+        <Class IRI="#Tipos_de_Investimento"/>
+    </ObjectPropertyDomain>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

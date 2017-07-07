@@ -1,0 +1,487 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <Prefix name="" IRI="http://www.semanticweb.org/eduardo/ontologies/2017/6/untitled-ontology-6#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Agressivo"/>
+        <Class abbreviatedIRI=":Investimento_InicialGrande"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Agressivo"/>
+        <Class abbreviatedIRI=":PrazoGrande"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Agressivo"/>
+        <Class abbreviatedIRI=":RentabilidadeGrande"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Agressivo"/>
+        <Class abbreviatedIRI=":RiscoGrande"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Agressivo"/>
+        <Class abbreviatedIRI=":Tipo_de_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Alta_Tolerancia"/>
+        <Class abbreviatedIRI=":Tolerancia_ao_Risco"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Caracteristicas_do_Investidor"/>
+        <Class abbreviatedIRI=":Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Classe_Alta"/>
+        <Class abbreviatedIRI=":Classe_Social"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Classe_Baixa"/>
+        <Class abbreviatedIRI=":Classe_Social"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Classe_Media"/>
+        <Class abbreviatedIRI=":Classe_Social"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Classe_Social"/>
+        <Class abbreviatedIRI=":Caracteristicas_do_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Conservador"/>
+        <Class abbreviatedIRI=":Investimento_Inicial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Conservador"/>
+        <Class abbreviatedIRI=":Prazo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Conservador"/>
+        <Class abbreviatedIRI=":Rentabilidade"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Conservador"/>
+        <Class abbreviatedIRI=":RiscoPequeno"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Conservador"/>
+        <Class abbreviatedIRI=":Tipo_de_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Investidor"/>
+        <Class IRI="Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Investimento"/>
+        <Class IRI="Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Investimento_Inicial"/>
+        <Class abbreviatedIRI=":Propriedades_do_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Investimento_InicialGrande"/>
+        <Class abbreviatedIRI=":Investimento_Inicial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Investimento_InicialMedio"/>
+        <Class abbreviatedIRI=":Investimento_Inicial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Investimento_InicialPequeno"/>
+        <Class abbreviatedIRI=":Investimento_Inicial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Moderado"/>
+        <Class abbreviatedIRI=":Investimento_Inicial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Moderado"/>
+        <Class abbreviatedIRI=":Prazo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Moderado"/>
+        <Class abbreviatedIRI=":Rentabilidade"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Moderado"/>
+        <Class abbreviatedIRI=":RiscoMedio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Moderado"/>
+        <Class abbreviatedIRI=":Tipo_de_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Pequena_Tolerancia"/>
+        <Class abbreviatedIRI=":Tolerancia_ao_Risco"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Poupança"/>
+        <Class abbreviatedIRI=":Tipos_de_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Prazo"/>
+        <Class abbreviatedIRI=":Propriedades_do_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":PrazoGrande"/>
+        <Class abbreviatedIRI=":Prazo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":PrazoMedio"/>
+        <Class abbreviatedIRI=":Prazo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":PrazoPequeno"/>
+        <Class abbreviatedIRI=":Prazo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Propriedades_do_Investimento"/>
+        <Class abbreviatedIRI=":Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Rentabilidade"/>
+        <Class abbreviatedIRI=":Propriedades_do_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":RentabilidadeGrande"/>
+        <Class abbreviatedIRI=":Rentabilidade"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":RentabilidadeMedia"/>
+        <Class abbreviatedIRI=":Rentabilidade"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":RentabilidadePequena"/>
+        <Class abbreviatedIRI=":Rentabilidade"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Risco"/>
+        <Class abbreviatedIRI=":Propriedades_do_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":RiscoGrande"/>
+        <Class abbreviatedIRI=":Risco"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":RiscoMedio"/>
+        <Class abbreviatedIRI=":Risco"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":RiscoPequeno"/>
+        <Class abbreviatedIRI=":Risco"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Tipo_de_Investidor"/>
+        <Class abbreviatedIRI=":Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Tipos_de_Investimento"/>
+        <Class abbreviatedIRI=":Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI=":Tolerancia_ao_Risco"/>
+        <Class abbreviatedIRI=":Caracteristicas_do_Investidor"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Agressivo"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Alta_Tolerancia"/>
+        <Class abbreviatedIRI=":Pequena_Tolerancia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Alta_Tolerancia"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Caracteristicas_do_Investidor"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Classe_Alta"/>
+        <Class abbreviatedIRI=":Classe_Baixa"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Classe_Alta"/>
+        <Class abbreviatedIRI=":Classe_Media"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Classe_Alta"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Classe_Baixa"/>
+        <Class abbreviatedIRI=":Classe_Media"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Classe_Baixa"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Classe_Media"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Classe_Social"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Conservador"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Investidor"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Investimento"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Investimento_Inicial"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Investimento_InicialGrande"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Investimento_InicialMedio"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Investimento_InicialPequeno"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Moderado"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Pequena_Tolerancia"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Poupança"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Prazo"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":PrazoGrande"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":PrazoMedio"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":PrazoPequeno"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Propriedades_do_Investimento"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Rentabilidade"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":RentabilidadeGrande"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":RentabilidadeMedia"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":RentabilidadePequena"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Risco"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":RiscoGrande"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":RiscoMedio"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":RiscoPequeno"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Tipo_de_Investidor"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Tipos_de_Investimento"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI=":Tolerancia_ao_Risco"/>
+        <Class IRI="Nothing"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Investimento"/>
+        <NamedIndividual abbreviatedIRI=":Karol"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Prazo"/>
+        <NamedIndividual abbreviatedIRI=":Karol"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":PrazoPequeno"/>
+        <NamedIndividual abbreviatedIRI=":Karol"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Propriedades_do_Investimento"/>
+        <NamedIndividual abbreviatedIRI=":Karol"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Risco"/>
+        <NamedIndividual abbreviatedIRI=":Karol"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":RiscoPequeno"/>
+        <NamedIndividual abbreviatedIRI=":Karol"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Thing"/>
+        <NamedIndividual abbreviatedIRI=":Karol"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Agressivo"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Investidor"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Investimento"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Investimento_Inicial"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Investimento_InicialGrande"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Prazo"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":PrazoGrande"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Propriedades_do_Investimento"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Rentabilidade"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":RentabilidadeGrande"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Risco"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":RiscoGrande"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Tipo_de_Investidor"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Thing"/>
+        <NamedIndividual abbreviatedIRI=":Pedrinho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Investidor"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Investimento"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Investimento_Inicial"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Investimento_InicialMedio"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Moderado"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Prazo"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":PrazoMedio"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Propriedades_do_Investimento"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Rentabilidade"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":RentabilidadeMedia"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Risco"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":RiscoMedio"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Tipo_de_Investidor"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Thing"/>
+        <NamedIndividual abbreviatedIRI=":Rodrigo"/>
+    </ClassAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.5-SNAPSHOT) http://owlapi.sourceforge.net -->
+
