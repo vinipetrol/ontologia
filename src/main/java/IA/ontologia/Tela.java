@@ -1,19 +1,29 @@
 package IA.ontologia;
 
-/**
- *
- * @author Beckhauser
- */
 public class Tela extends javax.swing.JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5084652617691057489L;
-	/**
-	 * Creates new form Tela
-	 */
-	public Tela() {
+	private final App _app;
+	private javax.swing.JComboBox<String> conhecimento;
+	private javax.swing.JTextField investimento_inicial;
+	private javax.swing.JLabel jLabel1;
+	private javax.swing.JLabel jLabel2;
+	private javax.swing.JLabel jLabel3;
+	private javax.swing.JLabel jLabel4;
+	private javax.swing.JLabel jLabel5;
+	private javax.swing.JLabel jLabel6;
+	private javax.swing.JLabel jLabel7;
+	private javax.swing.JLabel jLabel8;
+	private javax.swing.JTextField nome;
+	private javax.swing.JButton ok;
+	private javax.swing.JTextField prazo;
+	private javax.swing.JTextField renda;
+	private javax.swing.JComboBox<String> riscos;
+	private javax.swing.JButton sair;
+	private javax.swing.JComboBox<String> sonho;
+
+	public Tela(App app) {
+		_app = app;
 		initComponents();
 	}
 
@@ -37,53 +47,38 @@ public class Tela extends javax.swing.JFrame {
 		sair = new javax.swing.JButton();
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-		jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+		jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36));
 		jLabel1.setText("Sistema de Apoio a Decisão de Investimento:");
-
 		jLabel2.setText("Qual o seu nome?");
-
 		jLabel3.setText("Qual a sua renda média familiar?");
-
 		jLabel4.setText("Você tem conhecimento sobre algum tipo de investimento listado?");
-
 		conhecimento.setModel(new javax.swing.DefaultComboBoxModel<String>(
 				new String[] { "Ações", "Certificado de Depósito Bancário", "Letras de Crédito", "Títulos Públicos", "Sem Conhecimento" }));
-
 		nome.setToolTipText("");
 		nome.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				nomeActionPerformed(evt);
 			}
 		});
-
 		jLabel5.setText("Quanto você tem para investir inicialmente num possível investimento?");
-
 		investimento_inicial.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				investimento_inicialActionPerformed(evt);
 			}
 		});
-
 		jLabel6.setText("Qual o seu sonho? (no que você investiria com o dinheiro ganho?)");
-
 		sonho.setModel(new javax.swing.DefaultComboBoxModel<String>(
 				new String[] { "Reforma de Imóveis", "Viagem", "Automóvel", "Compra de Imóvel" }));
-
 		jLabel7.setText("Você está disposto a assumir riscos no investimento ou prefere algo mais seguro?");
-
 		riscos.setModel(
 				new javax.swing.DefaultComboBoxModel<String>(new String[] { "Sim", "Sim mas de forma moderada", "Preferivelmente Não" }));
-
 		jLabel8.setText("Para você, quanto tempo essa aplicação deveria gerar lucros? (responda em meses)");
-
 		ok.setText("Ok");
 		ok.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				okActionPerformed(evt);
 			}
 		});
-
 		sair.setText("Sair");
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,59 +154,21 @@ public class Tela extends javax.swing.JFrame {
 				.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
 		pack();
-	}// </editor-fold>//GEN-END:initComponents
+	}
 
-	private void okActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_okActionPerformed
+	private void okActionPerformed(java.awt.event.ActionEvent evt) {
 		Investidor investidor = new Investidor(nome.getText(), Integer.parseInt(renda.getText()),
 				String.valueOf(conhecimento.getSelectedItem()), Integer.parseInt(investimento_inicial.getText()),
 				String.valueOf(sonho.getSelectedItem()), String.valueOf(riscos.getSelectedItem()), Integer.parseInt(prazo.getText()));
-		// App.rodarOntologia(investidor);
-		System.out.println(investidor.retornaNome());
-		System.out.println(investidor.retornaRentaFamiliar());
-		System.out.println(investidor.retornaConhecimento());
-		System.out.println(investidor.retornaInvestimentoInicial());
-		System.out.println(investidor.retornaSonho());
-		System.out.println(investidor.retornaRisco());
-		System.out.println(investidor.retornaPrazo());
-	}// GEN-LAST:event_okActionPerformed
-
-	private void nomeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_nomeActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_nomeActionPerformed
-
-	private void investimento_inicialActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_investimento_inicialActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_investimento_inicialActionPerformed
-
-	/**
-	 * @param args
-	 *            the command line arguments
-	 */
-	public static void main(String args[]) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new Tela().setVisible(true);
-			}
-		});
+		_app.callback(investidor);
 	}
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JComboBox<String> conhecimento;
-	private javax.swing.JTextField investimento_inicial;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel3;
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JLabel jLabel5;
-	private javax.swing.JLabel jLabel6;
-	private javax.swing.JLabel jLabel7;
-	private javax.swing.JLabel jLabel8;
-	private javax.swing.JTextField nome;
-	private javax.swing.JButton ok;
-	private javax.swing.JTextField prazo;
-	private javax.swing.JTextField renda;
-	private javax.swing.JComboBox<String> riscos;
-	private javax.swing.JButton sair;
-	private javax.swing.JComboBox<String> sonho;
-	// End of variables declaration//GEN-END:variables
+	private void nomeActionPerformed(java.awt.event.ActionEvent evt) {
+		// TODO add your handling code here:
+	}
+
+	private void investimento_inicialActionPerformed(java.awt.event.ActionEvent evt) {
+		// TODO add your handling code here:
+	}
+
 }

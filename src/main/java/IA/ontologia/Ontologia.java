@@ -65,7 +65,68 @@ public class Ontologia {
 		_fabrica = _gerenciador.getOWLDataFactory();
 	}
 
-	// createPropertyAssertions
+	/**
+	 * Método que cria o inferenciador(reasoner) da aplicação.
+	 */
+	public void criarInferenciador() {
+		if (_inferenciar == null) {
+			ConsoleProgressMonitor progressMonitor = new ConsoleProgressMonitor();
+			OWLReasonerConfiguration config = new SimpleConfiguration(progressMonitor);
+			OWLReasonerFactory reasonerFactory = new Reasoner.ReasonerFactory();
+			_inferenciar = reasonerFactory.createNonBufferingReasoner(_ontologia, config);
+		}
+	}
+
+	/**
+	 * Método para inferênciar sobre a ontologia.
+	 */
+	public void inferenciar() {
+		System.out.println(_inferenciar.isConsistent());
+		_inferenciar.precomputeInferences();
+	}
+
+	/**
+	 * Método que retorna as instancias de uma classe dado o nome da mesma.
+	 * 
+	 * @param nomeClasse
+	 *            Nome da classe
+	 * @return Lista de nome dos indivíduos da classe
+	 */
+	public List<String> getInstanciaPeloNomeClasse(String nomeClasse) {
+		criarInferenciador();
+		inferenciar();
+		OWLClass owlClasse = _fabrica.getOWLClass(IRI.create(_endereco + "#" + nomeClasse));
+		NodeSet<OWLNamedIndividual> conjuntoIndividuos = _inferenciar.getInstances(owlClasse, false);
+		Set<OWLNamedIndividual> individuos = conjuntoIndividuos.getFlattened();
+		List<String> instancias = new ArrayList<String>();
+		for (OWLNamedIndividual ind : individuos) {
+			instancias.add(ind.toString());
+		}
+		return instancias;
+
+	}
+
+	/**
+	 * Método que retorna o individuo dado nome da classe e da instância.
+	 * 
+	 * @param nomeClasse
+	 *            Nome da classe
+	 * @param nomeInstancia
+	 *            Nome da instância
+	 * @return Indivíduo encontrado
+	 */
+	public OWLNamedIndividual getIndividuoPorNomeClasseEInstancia(String nomeClasse, String nomeInstancia) {
+		OWLClass owlClasse = _fabrica.getOWLClass(IRI.create(_endereco + "#" + nomeClasse));
+		NodeSet<OWLNamedIndividual> conjuntoIndividuos = _inferenciar.getInstances(owlClasse, false);
+		Set<OWLNamedIndividual> individuos = conjuntoIndividuos.getFlattened();
+		for (OWLNamedIndividual ind : individuos) {
+			if (ind.toString().indexOf(_endereco + "#" + nomeInstancia) != -1) {
+				return ind;
+			}
+		}
+		return null;
+	}
+
 	/**
 	 * Método que cria uma axioma de propriedade entre 2 individuos.
 	 * 
@@ -88,7 +149,6 @@ public class Ontologia {
 		atualizarOntologia();
 	}
 
-	// createDataProperty
 	/**
 	 * Método que adiciona uma propriedade a um indivíduo
 	 * 
@@ -112,70 +172,27 @@ public class Ontologia {
 		OWLLiteral literal = _fabrica.getOWLLiteral(valor, valorIRI);
 		OWLDataPropertyAssertionAxiom assersaoPropNovo = _fabrica.getOWLDataPropertyAssertionAxiom(propDado, ind1, literal);
 		_gerenciador.addAxiom(_ontologia, assersaoPropNovo);
+		System.out.println(
+				"Do margherita pizzas have a topping that is morzarella or goats cheese? " + _inferenciar.isEntailed(assersaoPropNovo));
 		atualizarOntologia();
 	}
 
 	/**
-	 * Método que cria o inferenciador(reasoner) da aplicação.
-	 */
-	public void criarInferenciador() {
-		if (_inferenciar == null) {
-			ConsoleProgressMonitor progressMonitor = new ConsoleProgressMonitor();
-			OWLReasonerConfiguration config = new SimpleConfiguration(progressMonitor);
-			OWLReasonerFactory reasonerFactory = new Reasoner.ReasonerFactory();
-			_inferenciar = reasonerFactory.createNonBufferingReasoner(_ontologia, config);
-		}
-	}
-
-	public void inferenciar() {
-		_inferenciar.precomputeInferences();
-	}
-
-	// getClassInstances
-	/**
-	 * Método que retorna as instancia de uma classe da o nome da mesma.
+	 * Método que salva a ontologia num arquivo.
 	 * 
-	 * @param nomeClasse
-	 *            Nome da classe
-	 * @return Lista de nome dos indivíduos da classe
+	 * @throws IOException
+	 * @throws OWLOntologyStorageException
+	 * @throws OWLOntologyCreationException
 	 */
-	public List<String> getInstanciaPeloNomeClasse(String nomeClasse) {
-		criarInferenciador();
-		inferenciar();
-		OWLClass owlClasse = _fabrica.getOWLClass(IRI.create(_endereco + "#" + nomeClasse));
-		NodeSet<OWLNamedIndividual> conjuntoIndividuos = _inferenciar.getInstances(owlClasse, false);
-		Set<OWLNamedIndividual> individuos = conjuntoIndividuos.getFlattened();
-		List<String> instancias = new ArrayList<String>();
-		for (OWLNamedIndividual ind : individuos) {
-			instancias.add(ind.toString());
-		}
-		return instancias;
-
+	public void atualizarOntologia() throws IOException, OWLOntologyStorageException, OWLOntologyCreationException {
+		File output = new File("/home/vinicius/Desktop/ia/ontologia/src/main/java/IA/ontologia/outra" + 1 + ".owl");
+		if (!output.exists())
+			output.createNewFile();
+		output = output.getAbsoluteFile();
+		OutputStream stream = new FileOutputStream(output);
+		_gerenciador.saveOntology(_ontologia, _gerenciador.getOntologyFormat(_ontologia), stream);
 	}
 
-	// getInstanceClass
-	/**
-	 * Método que retorna o individuo dado nome da class e da instância.
-	 * 
-	 * @param nomeClasse
-	 *            Nome da classe
-	 * @param nomeInstancia
-	 *            Nome da instância
-	 * @return Indivíduo encontrado
-	 */
-	public OWLNamedIndividual getIndividuoPorNomeClasseEInstancia(String nomeClasse, String nomeInstancia) {
-		OWLClass owlClasse = _fabrica.getOWLClass(IRI.create(_endereco + "#" + nomeClasse));
-		NodeSet<OWLNamedIndividual> conjuntoIndividuos = _inferenciar.getInstances(owlClasse, false);
-		Set<OWLNamedIndividual> individuos = conjuntoIndividuos.getFlattened();
-		for (OWLNamedIndividual ind : individuos) {
-			if (ind.toString().indexOf(_endereco + "#" + nomeInstancia) != -1) {
-				return ind;
-			}
-		}
-		return null;
-	}
-
-	// showInstancesDataProperty
 	/**
 	 * Método que mostra as propriedades das instâncias.
 	 * 
@@ -197,7 +214,6 @@ public class Ontologia {
 		}
 	}
 
-	// showClassAfterReasoning
 	/**
 	 * Método que mostra a classe da instância depois de realizada uma inferência.
 	 * 
@@ -216,7 +232,6 @@ public class Ontologia {
 		}
 	}
 
-	// showInstancesProperties
 	/**
 	 * Método que mostra as propriedades das instâncias.
 	 * 
@@ -236,7 +251,6 @@ public class Ontologia {
 		}
 	}
 
-	// getInstanceResult
 	/**
 	 * Método que itera pela instância
 	 * 
@@ -259,22 +273,6 @@ public class Ontologia {
 			}
 		}
 		return classes;
-	}
-
-	/**
-	 * Método que salva a ontologia num arquivo.
-	 * 
-	 * @throws IOException
-	 * @throws OWLOntologyStorageException
-	 * @throws OWLOntologyCreationException
-	 */
-	public void atualizarOntologia() throws IOException, OWLOntologyStorageException, OWLOntologyCreationException {
-		File output = new File("/home/vinicius/Desktop/ia/ontologia/src/main/java/IA/ontologia/outra.owl");
-		if (!output.exists())
-			output.createNewFile();
-		output = output.getAbsoluteFile();
-		OutputStream stream = new FileOutputStream(output);
-		_gerenciador.saveOntology(_ontologia, _gerenciador.getOntologyFormat(_ontologia), stream);
 	}
 
 	/**
