@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1499616835753" name="duplicate:http://www.semanticweb.org/eduardo/ontologies/2017/6/untitled-ontology-6" uri="Ontologia.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1499616835753" name="duplicate:http://www.semanticweb.org/eduardo/ontologies/2017/6/untitled-ontology-6" uri="Novooo.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499650340489" name="duplicate:http://www.semanticweb.org/beckhauser/ontologies/2017/6/untitled-ontology-23" uri="outra.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499650340489" name="duplicate:http://www.semanticweb.org/beckhauser/ontologies/2017/6/untitled-ontology-23" uri="OntologiaFinal.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499650340489" name="http://www.semanticweb.org/eduardo/ontologies/2017/6/untitled-ontology-6" uri="Ontologia.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499650340489" name="http://www.semanticweb.org/root/ontologies/2017/5/untitled-ontology-2" uri="ontologia_aplicacao.owl"/>
     </group>
 </catalog>

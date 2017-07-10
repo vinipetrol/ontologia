@@ -1,0 +1,805 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/beckhauser/ontologies/2017/6/untitled-ontology-23"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/beckhauser/ontologies/2017/6/untitled-ontology-23">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Agressivo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bolsa_de_Valores"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CDB"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Caracteristicas_Investimento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Caracteristicas_do_Investidor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classe_Social"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classe_Social_Alta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classe_Social_Baixa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classe_Social_Media"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Conhecimento_Previo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Conservador"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Investidor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Investimento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LCI_LCA"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Moderado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Perfil_do_Investidor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Poupanca"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Prazo_Grande"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Prazo_Investimento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Prazo_Medio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Prazo_Pequeno"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Retorno_Grande"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Retorno_Investimento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Retorno_Medio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Retorno_Pequeno"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Risco_Grande"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Risco_Investimento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Risco_Medio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Risco_Pequeno"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tipos_de_Investimento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Titulos_Publicos"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tolerancia_Alta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tolerancia_Baixa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tolerancia_ao_Risco"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#bolsa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#certificado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#letras_de_credito"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#poupanca"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#sem_conhecimento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#titulos_publicos"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#investimentoTemPerfil"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#temCaracteristica"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#temClasse"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#temConhecimento"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#toleranciaAoRisco"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#classeSocial"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#temPrazo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#temRenda"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#temRetorno"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#temRisco"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#temToleranciaRisco"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#José"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Juquinha"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pedro"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sem_Conhecimento"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#bolsa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#certificado"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#classeAlta"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#classeBaixa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#classeMedia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#letras_de_credito"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#poupanca"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#titulos_publicos"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Agressivo"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Classe_Social_Alta"/>
+            <Class IRI="#Tolerancia_Alta"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Bolsa_de_Valores"/>
+        <ObjectUnionOf>
+            <ObjectIntersectionOf>
+                <Class IRI="#Prazo_Grande"/>
+                <Class IRI="#Retorno_Grande"/>
+                <Class IRI="#Risco_Grande"/>
+            </ObjectIntersectionOf>
+            <ObjectIntersectionOf>
+                <Class IRI="#Prazo_Grande"/>
+                <Class IRI="#Retorno_Grande"/>
+                <Class IRI="#Risco_Grande"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#temConhecimento"/>
+                    <Class IRI="#bolsa"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#CDB"/>
+        <ObjectUnionOf>
+            <ObjectIntersectionOf>
+                <Class IRI="#Prazo_Medio"/>
+                <Class IRI="#Retorno_Pequeno"/>
+                <Class IRI="#Risco_Pequeno"/>
+            </ObjectIntersectionOf>
+            <ObjectIntersectionOf>
+                <Class IRI="#Prazo_Medio"/>
+                <Class IRI="#Retorno_Pequeno"/>
+                <Class IRI="#Risco_Pequeno"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#temConhecimento"/>
+                    <Class IRI="#certificado"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Classe_Social_Alta"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#temClasse"/>
+            <Class IRI="#Classe_Social_Alta"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Classe_Social_Baixa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#temClasse"/>
+            <Class IRI="#Classe_Social_Baixa"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Classe_Social_Media"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#temClasse"/>
+            <Class IRI="#Classe_Social_Media"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Conservador"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Classe_Social_Baixa"/>
+            <Class IRI="#Tolerancia_Baixa"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#LCI_LCA"/>
+        <ObjectUnionOf>
+            <ObjectIntersectionOf>
+                <Class IRI="#Prazo_Pequeno"/>
+                <Class IRI="#Retorno_Medio"/>
+                <Class IRI="#Risco_Pequeno"/>
+            </ObjectIntersectionOf>
+            <ObjectIntersectionOf>
+                <Class IRI="#Prazo_Pequeno"/>
+                <Class IRI="#Retorno_Medio"/>
+                <Class IRI="#Risco_Pequeno"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#temConhecimento"/>
+                    <Class IRI="#letras_de_credito"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Moderado"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Classe_Social_Media"/>
+            <Class IRI="#Tolerancia_Baixa"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Poupanca"/>
+        <Class IRI="#sem_conhecimento"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Prazo_Grande"/>
+        <DataHasValue>
+            <DataProperty IRI="#temPrazo"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">grande</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Prazo_Medio"/>
+        <DataHasValue>
+            <DataProperty IRI="#temPrazo"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">medio</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Prazo_Pequeno"/>
+        <DataHasValue>
+            <DataProperty IRI="#temPrazo"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">pequeno</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Retorno_Grande"/>
+        <DataHasValue>
+            <DataProperty IRI="#temRetorno"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">grande</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Retorno_Medio"/>
+        <DataHasValue>
+            <DataProperty IRI="#temRetorno"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">medio</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Retorno_Pequeno"/>
+        <DataHasValue>
+            <DataProperty IRI="#temRetorno"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">pequeno</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Risco_Grande"/>
+        <DataHasValue>
+            <DataProperty IRI="#temRisco"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">grande</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Risco_Medio"/>
+        <DataHasValue>
+            <DataProperty IRI="#temRisco"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">medio</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Risco_Pequeno"/>
+        <DataHasValue>
+            <DataProperty IRI="#temRisco"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">pequeno</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Titulos_Publicos"/>
+        <ObjectUnionOf>
+            <ObjectIntersectionOf>
+                <Class IRI="#Prazo_Medio"/>
+                <Class IRI="#Retorno_Medio"/>
+                <Class IRI="#Risco_Pequeno"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Conservador"/>
+                    <Class IRI="#Moderado"/>
+                </ObjectUnionOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#temConhecimento"/>
+                    <Class IRI="#sem_conhecimento"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+            <ObjectIntersectionOf>
+                <Class IRI="#Prazo_Medio"/>
+                <Class IRI="#Retorno_Medio"/>
+                <Class IRI="#Risco_Pequeno"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#temConhecimento"/>
+                    <Class IRI="#sem_conhecimento"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Tolerancia_Alta"/>
+        <DataHasValue>
+            <DataProperty IRI="#temToleranciaRisco"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">grande</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Tolerancia_Baixa"/>
+        <DataHasValue>
+            <DataProperty IRI="#temToleranciaRisco"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">pequeno</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#sem_conhecimento"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#temConhecimento"/>
+            <NamedIndividual IRI="#Sem_Conhecimento"/>
+        </ObjectHasValue>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Agressivo"/>
+        <Class IRI="#Perfil_do_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bolsa_de_Valores"/>
+        <Class IRI="#Tipos_de_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CDB"/>
+        <Class IRI="#Tipos_de_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Caracteristicas_Investimento"/>
+        <Class IRI="#Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Caracteristicas_do_Investidor"/>
+        <Class IRI="#Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classe_Social"/>
+        <Class IRI="#Caracteristicas_do_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classe_Social_Alta"/>
+        <Class IRI="#Classe_Social"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classe_Social_Baixa"/>
+        <Class IRI="#Classe_Social"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classe_Social_Baixa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#temCaracteristica"/>
+            <Class IRI="#Conservador"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classe_Social_Baixa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#temClasse"/>
+            <Class IRI="#Classe_Social_Baixa"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classe_Social_Baixa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#toleranciaAoRisco"/>
+            <Class IRI="#Tolerancia_Baixa"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classe_Social_Media"/>
+        <Class IRI="#Classe_Social"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Conhecimento_Previo"/>
+        <Class IRI="#Caracteristicas_do_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Conservador"/>
+        <Class IRI="#Perfil_do_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LCI_LCA"/>
+        <Class IRI="#Tipos_de_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Moderado"/>
+        <Class IRI="#Perfil_do_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Perfil_do_Investidor"/>
+        <Class IRI="#Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Poupanca"/>
+        <Class IRI="#Tipos_de_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prazo_Grande"/>
+        <Class IRI="#Prazo_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prazo_Investimento"/>
+        <Class IRI="#Caracteristicas_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prazo_Medio"/>
+        <Class IRI="#Prazo_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prazo_Pequeno"/>
+        <Class IRI="#Prazo_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Retorno_Grande"/>
+        <Class IRI="#Retorno_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Retorno_Investimento"/>
+        <Class IRI="#Caracteristicas_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Retorno_Medio"/>
+        <Class IRI="#Retorno_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Retorno_Pequeno"/>
+        <Class IRI="#Retorno_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Risco_Grande"/>
+        <Class IRI="#Risco_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Risco_Investimento"/>
+        <Class IRI="#Caracteristicas_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Risco_Medio"/>
+        <Class IRI="#Risco_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Risco_Pequeno"/>
+        <Class IRI="#Risco_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tipos_de_Investimento"/>
+        <Class IRI="#Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Titulos_Publicos"/>
+        <Class IRI="#Tipos_de_Investimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tolerancia_Alta"/>
+        <Class IRI="#Tolerancia_ao_Risco"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tolerancia_Baixa"/>
+        <Class IRI="#Tolerancia_ao_Risco"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tolerancia_ao_Risco"/>
+        <Class IRI="#Caracteristicas_do_Investidor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#bolsa"/>
+        <Class IRI="#Conhecimento_Previo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#certificado"/>
+        <Class IRI="#Conhecimento_Previo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#letras_de_credito"/>
+        <Class IRI="#Conhecimento_Previo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#poupanca"/>
+        <Class IRI="#Conhecimento_Previo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#sem_conhecimento"/>
+        <Class IRI="#Conhecimento_Previo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#titulos_publicos"/>
+        <Class IRI="#Conhecimento_Previo"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Agressivo"/>
+        <Class IRI="#Conservador"/>
+        <Class IRI="#Moderado"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Classe_Social_Alta"/>
+        <Class IRI="#Classe_Social_Baixa"/>
+        <Class IRI="#Classe_Social_Media"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Prazo_Grande"/>
+        <Class IRI="#Prazo_Medio"/>
+        <Class IRI="#Prazo_Pequeno"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Retorno_Grande"/>
+        <Class IRI="#Retorno_Medio"/>
+        <Class IRI="#Retorno_Pequeno"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Risco_Grande"/>
+        <Class IRI="#Risco_Medio"/>
+        <Class IRI="#Risco_Pequeno"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#bolsa"/>
+        <Class IRI="#certificado"/>
+        <Class IRI="#letras_de_credito"/>
+        <Class IRI="#poupanca"/>
+        <Class IRI="#sem_conhecimento"/>
+        <Class IRI="#titulos_publicos"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#Investidor"/>
+        <NamedIndividual IRI="#José"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Investidor"/>
+        <NamedIndividual IRI="#Juquinha"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Investidor"/>
+        <NamedIndividual IRI="#Pedro"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sem_conhecimento"/>
+        <NamedIndividual IRI="#Sem_Conhecimento"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#bolsa"/>
+        <NamedIndividual IRI="#bolsa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#certificado"/>
+        <NamedIndividual IRI="#certificado"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Classe_Social_Alta"/>
+        <NamedIndividual IRI="#classeAlta"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Classe_Social_Baixa"/>
+        <NamedIndividual IRI="#classeBaixa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Classe_Social_Media"/>
+        <NamedIndividual IRI="#classeMedia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#letras_de_credito"/>
+        <NamedIndividual IRI="#letras_de_credito"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#poupanca"/>
+        <NamedIndividual IRI="#poupanca"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#titulos_publicos"/>
+        <NamedIndividual IRI="#titulos_publicos"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#temClasse"/>
+        <NamedIndividual IRI="#José"/>
+        <NamedIndividual IRI="#classeBaixa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#temConhecimento"/>
+        <NamedIndividual IRI="#José"/>
+        <NamedIndividual IRI="#letras_de_credito"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#temClasse"/>
+        <NamedIndividual IRI="#Juquinha"/>
+        <NamedIndividual IRI="#classeMedia"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#temConhecimento"/>
+        <NamedIndividual IRI="#Juquinha"/>
+        <NamedIndividual IRI="#Sem_Conhecimento"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#temClasse"/>
+        <NamedIndividual IRI="#Pedro"/>
+        <NamedIndividual IRI="#classeAlta"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#temConhecimento"/>
+        <NamedIndividual IRI="#Pedro"/>
+        <NamedIndividual IRI="#bolsa"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#classeSocial"/>
+        <NamedIndividual IRI="#José"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">pequeno</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#temPrazo"/>
+        <NamedIndividual IRI="#José"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">pequeno</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#temRetorno"/>
+        <NamedIndividual IRI="#José"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">medio</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#temRisco"/>
+        <NamedIndividual IRI="#José"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">pequeno</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#temToleranciaRisco"/>
+        <NamedIndividual IRI="#José"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">pequeno</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#temToleranciaRisco"/>
+        <NamedIndividual IRI="#Juquinha"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">pequeno</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#temPrazo"/>
+        <NamedIndividual IRI="#Pedro"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">grande</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#temRetorno"/>
+        <NamedIndividual IRI="#Pedro"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">grande</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#temRisco"/>
+        <NamedIndividual IRI="#Pedro"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">grande</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#temToleranciaRisco"/>
+        <NamedIndividual IRI="#Pedro"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">grande</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyDomain>
+        <DataProperty IRI="#temPrazo"/>
+        <Class IRI="#Investimento"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#temPrazo"/>
+        <DataOneOf>
+            <Literal datatypeIRI="&rdf;PlainLiteral">grande</Literal>
+            <Literal datatypeIRI="&rdf;PlainLiteral">medio</Literal>
+            <Literal datatypeIRI="&rdf;PlainLiteral">pequeno</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#temRenda"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#temRetorno"/>
+        <DataOneOf>
+            <Literal datatypeIRI="&rdf;PlainLiteral">grande</Literal>
+            <Literal datatypeIRI="&rdf;PlainLiteral">medio</Literal>
+            <Literal datatypeIRI="&rdf;PlainLiteral">pequeno</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#temRisco"/>
+        <DataOneOf>
+            <Literal datatypeIRI="&rdf;PlainLiteral">grande</Literal>
+            <Literal datatypeIRI="&rdf;PlainLiteral">medio</Literal>
+            <Literal datatypeIRI="&rdf;PlainLiteral">pequeno</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#temToleranciaRisco"/>
+        <DataOneOf>
+            <Literal datatypeIRI="&rdf;PlainLiteral">grande</Literal>
+            <Literal datatypeIRI="&rdf;PlainLiteral">pequeno</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

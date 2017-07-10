@@ -1,6 +1,5 @@
 package IA.ontologia;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,14 +10,11 @@ import java.util.Set;
 
 import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.io.StreamDocumentTarget;
-import org.semanticweb.owlapi.model.AddAxiom;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
-import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLDatatype;
 import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLLiteral;
@@ -34,97 +30,28 @@ import org.semanticweb.owlapi.reasoner.ConsoleProgressMonitor;
 import org.semanticweb.owlapi.reasoner.InferenceType;
 import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
-import org.semanticweb.owlapi.reasoner.OWLReasonerConfiguration;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import org.semanticweb.owlapi.reasoner.SimpleConfiguration;
 import org.semanticweb.owlapi.vocab.OWL2Datatype;
 
 public class Ontologia {
-
-	public Ontologia() {
-	}
-
-	private OWLOntologyManager _gerenciador;
-	private IRI _endereco;
-	private OWLOntology _ontologia;
-	private OWLReasoner _inferenciar;
-	private OWLDataFactory _fabrica;
+	private OWLOntologyManager gerenciador;
+	private IRI endereco;
+	private OWLOntology ontologia;
+	private OWLReasoner reasoner;
 
 	/**
-	 * Método responsável por criar uma instancia da ontologia carregado de um
-	 * arquivo.
+	 * Método que inicializa uma ontologia carregada de um arquivo, e inicializa
+	 * variávis globais.
 	 * 
-	 * @param arquivo
+	 * @param path
 	 * @throws OWLOntologyCreationException
 	 */
-	public void criarOntologia(String arquivo) throws OWLOntologyCreationException {
-		_gerenciador = OWLManager.createOWLOntologyManager();
-		File arq = new File(arquivo);
-		_ontologia = _gerenciador.loadOntologyFromOntologyDocument(arq);
-		_endereco = IRI.create("http://www.semanticweb.org/root/ontologies/2017/5/untitled-ontology-2");
-		_fabrica = _gerenciador.getOWLDataFactory();
-	}
-
-	/**
-	 * Método que cria o inferenciador(reasoner) da aplicação.
-	 */
-	public void criarInferenciador() {
-		if (_inferenciar == null) {
-			ConsoleProgressMonitor progressMonitor = new ConsoleProgressMonitor();
-			OWLReasonerConfiguration config = new SimpleConfiguration(progressMonitor);
-			OWLReasonerFactory reasonerFactory = new Reasoner.ReasonerFactory();
-			_inferenciar = reasonerFactory.createNonBufferingReasoner(_ontologia, config);
-		}
-	}
-
-	/**
-	 * Método para inferênciar sobre a ontologia.
-	 */
-	public void inferenciar() {
-		System.out.println(_inferenciar.isConsistent());
-		_inferenciar.precomputeInferences();
-	}
-
-	/**
-	 * Método que retorna as instancias de uma classe dado o nome da mesma.
-	 * 
-	 * @param nomeClasse
-	 *            Nome da classe
-	 * @return Lista de nome dos indivíduos da classe
-	 */
-	public List<String> getInstanciaPeloNomeClasse(String nomeClasse) {
-		criarInferenciador();
-		inferenciar();
-		OWLClass owlClasse = _fabrica.getOWLClass(IRI.create(_endereco + "#" + nomeClasse));
-		NodeSet<OWLNamedIndividual> conjuntoIndividuos = _inferenciar.getInstances(owlClasse, false);
-		Set<OWLNamedIndividual> individuos = conjuntoIndividuos.getFlattened();
-		List<String> instancias = new ArrayList<String>();
-		for (OWLNamedIndividual ind : individuos) {
-			instancias.add(ind.toString());
-		}
-		return instancias;
-
-	}
-
-	/**
-	 * Método que retorna o individuo dado nome da classe e da instância.
-	 * 
-	 * @param nomeClasse
-	 *            Nome da classe
-	 * @param nomeInstancia
-	 *            Nome da instância
-	 * @return Indivíduo encontrado
-	 */
-	public OWLNamedIndividual getIndividuoPorNomeClasseEInstancia(String nomeClasse, String nomeInstancia) {
-		OWLClass owlClasse = _fabrica.getOWLClass(IRI.create(_endereco + "#" + nomeClasse));
-		NodeSet<OWLNamedIndividual> conjuntoIndividuos = _inferenciar.getInstances(owlClasse, false);
-		Set<OWLNamedIndividual> individuos = conjuntoIndividuos.getFlattened();
-		for (OWLNamedIndividual ind : individuos) {
-			if (ind.toString().indexOf(_endereco + "#" + nomeInstancia) != -1) {
-				return ind;
-			}
-		}
-		return null;
+	public void carregarOWL(String arquivo) throws OWLOntologyCreationException {
+		gerenciador = OWLManager.createOWLOntologyManager();
+		File file = new File(arquivo);
+		ontologia = gerenciador.loadOntologyFromOntologyDocument(file);
+		endereco = IRI.create("http://www.semanticweb.org/root/ontologies/2017/6/ontologia");
 	}
 
 	/**
@@ -139,14 +66,12 @@ public class Ontologia {
 	 * @throws Exception
 	 */
 	public void adicionarAxiomasPropriedade(String propriedade, String instancia1, String instancia2) throws Exception {
-		OWLIndividual ind1 = _fabrica.getOWLNamedIndividual(IRI.create(_endereco + "#" + instancia1));
-		OWLIndividual ind2 = _fabrica.getOWLNamedIndividual(IRI.create(_endereco + "#" + instancia2));
-		OWLObjectProperty objPropriedade = _fabrica.getOWLObjectProperty(IRI.create(_endereco + "#" + propriedade));
-		OWLObjectPropertyAssertionAxiom propAxioma = _fabrica.getOWLObjectPropertyAssertionAxiom(objPropriedade, ind1, ind2);
-		AddAxiom novoAxioma = new AddAxiom(_ontologia, propAxioma);
-		_gerenciador.applyChange(novoAxioma);
-		_gerenciador.saveOntology(_ontologia, new StreamDocumentTarget(new ByteArrayOutputStream()));
-		atualizarOntologia();
+		OWLDataFactory fac = gerenciador.getOWLDataFactory();
+		OWLIndividual i1 = fac.getOWLNamedIndividual(IRI.create("#" + instancia1));
+		OWLIndividual i2 = fac.getOWLNamedIndividual(IRI.create("#" + instancia2));
+		OWLObjectProperty prop = fac.getOWLObjectProperty(IRI.create("#" + propriedade));
+		OWLObjectPropertyAssertionAxiom propertyAssertion = fac.getOWLObjectPropertyAssertionAxiom(prop, i1, i2);
+		gerenciador.addAxiom(ontologia, propertyAssertion);
 	}
 
 	/**
@@ -165,32 +90,64 @@ public class Ontologia {
 	 * @throws OWLOntologyCreationException
 	 */
 	public void criarPropriedadeDeInformacao(String propriedade, String instancia, String valor, OWL2Datatype tipo)
-			throws OWLOntologyStorageException, IOException, OWLOntologyCreationException {
-		OWLIndividual ind1 = _fabrica.getOWLNamedIndividual(IRI.create("#" + instancia));
-		OWLDataProperty propDado = _fabrica.getOWLDataProperty(IRI.create("#" + propriedade));
-		OWLDatatype valorIRI = _fabrica.getOWLDatatype(tipo.getIRI());
-		OWLLiteral literal = _fabrica.getOWLLiteral(valor, valorIRI);
-		OWLDataPropertyAssertionAxiom assersaoPropNovo = _fabrica.getOWLDataPropertyAssertionAxiom(propDado, ind1, literal);
-		_gerenciador.addAxiom(_ontologia, assersaoPropNovo);
-		System.out.println(
-				"Do margherita pizzas have a topping that is morzarella or goats cheese? " + _inferenciar.isEntailed(assersaoPropNovo));
-		atualizarOntologia();
+			throws OWLOntologyStorageException, IOException {
+		OWLDataFactory fac = gerenciador.getOWLDataFactory();
+		OWLIndividual i = fac.getOWLNamedIndividual(IRI.create("#" + instancia));
+		OWLDataProperty dado = fac.getOWLDataProperty(IRI.create("#" + propriedade));
+		OWLDatatype owlTipo = fac.getOWLDatatype(tipo.getIRI());
+		OWLLiteral literal = fac.getOWLLiteral(valor, owlTipo);
+		gerenciador.addAxiom(ontologia, fac.getOWLDataPropertyAssertionAxiom(dado, i, literal));
+	}
+
+	public void criarInferenciador() {
+		OWLReasonerFactory rf = new Reasoner.ReasonerFactory();
+		reasoner = rf.createNonBufferingReasoner(ontologia, new SimpleConfiguration(new ConsoleProgressMonitor()));
+	}
+
+	public void inferir() {
+		reasoner.precomputeInferences();
 	}
 
 	/**
-	 * Método que salva a ontologia num arquivo.
+	 * Método que retorna as instancias de uma classe dado o nome da mesma.
 	 * 
-	 * @throws IOException
-	 * @throws OWLOntologyStorageException
-	 * @throws OWLOntologyCreationException
+	 * @param nomeClasse
+	 *            Nome da classe
+	 * @return Lista de nome dos indivíduos da classe
 	 */
-	public void atualizarOntologia() throws IOException, OWLOntologyStorageException, OWLOntologyCreationException {
-		File output = new File("/home/vinicius/Desktop/ia/ontologia/src/main/java/IA/ontologia/outra" + 1 + ".owl");
-		if (!output.exists())
-			output.createNewFile();
-		output = output.getAbsoluteFile();
-		OutputStream stream = new FileOutputStream(output);
-		_gerenciador.saveOntology(_ontologia, _gerenciador.getOntologyFormat(_ontologia), stream);
+	public List<String> getInstanciaPeloNomeClasse(String nomeClasse) {
+		OWLReasonerFactory rf = new Reasoner.ReasonerFactory();
+		OWLReasoner reasoner = rf.createNonBufferingReasoner(ontologia, new SimpleConfiguration(new ConsoleProgressMonitor()));
+		reasoner.precomputeInferences();
+		OWLClass owlClassName = gerenciador.getOWLDataFactory().getOWLClass(IRI.create(endereco + "#" + nomeClasse));
+		NodeSet<OWLNamedIndividual> individuos = reasoner.getInstances(owlClassName, false);
+		List<String> instancias = new ArrayList<String>();
+		for (OWLNamedIndividual ind : individuos.getFlattened()) {
+			System.out.println("Individuo ----------------- " + ind);
+			instancias.add(ind.toString());
+		}
+		return instancias;
+	}
+
+	/**
+	 * Método que exibe o individuo dado nome da classe e da instância.
+	 * 
+	 * @param nomeClasse
+	 *            Nome da classe
+	 * @param nomeInstancia
+	 *            Nome da instância
+	 */
+	public void mostrarIndividuoPorNomeClasseEInstancia(String nomeClasse, String nomeInstancia) {
+		OWLClass owlClasse = gerenciador.getOWLDataFactory().getOWLClass(IRI.create(endereco + "#" + nomeClasse));
+		NodeSet<OWLNamedIndividual> conjunto = reasoner.getInstances(owlClasse, false);
+		Set<OWLNamedIndividual> individuos = conjunto.getFlattened();
+		System.out.println(individuos.isEmpty());
+		for (OWLNamedIndividual ind : individuos) {
+			if (ind.toString().indexOf(endereco + "#" + nomeInstancia) != -1) {
+				System.out.println("Instancia: " + nomeInstancia + " ------------ Classe: " + nomeClasse);
+			}
+			System.out.println(" ----------- Indivíduo" + ind + "\n");
+		}
 	}
 
 	/**
@@ -199,15 +156,16 @@ public class Ontologia {
 	 * @throws Exception
 	 */
 	public void mostrarPropriedadesDasInstancias() throws Exception {
-		_inferenciar.precomputeInferences(InferenceType.CLASS_HIERARCHY);
-		for (OWLClass c : _ontologia.getClassesInSignature()) {
-			NodeSet<OWLNamedIndividual> instancias = _inferenciar.getInstances(c, false);
-			for (OWLNamedIndividual inst : instancias.getFlattened()) {
-				System.out.println(inst);
-				for (OWLDataProperty prop : _ontologia.getDataPropertiesInSignature()) {
-					Set<OWLLiteral> literais = _inferenciar.getDataPropertyValues(inst, prop);
-					for (OWLLiteral lit : literais) {
-						System.out.println(lit);
+		OWLReasonerFactory rf = new Reasoner.ReasonerFactory();
+		OWLReasoner rea = rf.createReasoner(ontologia, new SimpleConfiguration(new ConsoleProgressMonitor()));
+		rea.precomputeInferences(InferenceType.CLASS_HIERARCHY);
+		for (OWLClass classe : ontologia.getClassesInSignature()) {
+			for (OWLNamedIndividual ind : rea.getInstances(classe, false).getFlattened()) {
+				System.out.println("Lista: \n" + ind);
+				for (OWLDataProperty prop : ontologia.getDataPropertiesInSignature()) {
+					System.out.println(prop);
+					for (OWLLiteral value : rea.getDataPropertyValues(ind, prop)) {
+						System.out.println(value);
 					}
 				}
 			}
@@ -220,16 +178,19 @@ public class Ontologia {
 	 * @param instancia
 	 *            Nome da instância
 	 */
-	public void mostrarClasseDepoisInferencia(String instancia) {
-		_inferenciar.precomputeInferences();
-		for (OWLClass classe : _ontologia.getClassesInSignature()) {
-			NodeSet<OWLNamedIndividual> instancias = _inferenciar.getInstances(classe, true);
-			for (OWLNamedIndividual individuo : instancias.getFlattened()) {
-				if (individuo.toString().indexOf(_endereco + "#" + instancia) != -1) {
-					System.out.println(individuo + "\t" + classe);
+	public String mostrarClasseDepoisInferencia(String instancia) {
+		String retorno = "";
+		reasoner.precomputeInferences();
+		for (OWLClass classe : ontologia.getClassesInSignature()) {
+			for (OWLNamedIndividual ind : reasoner.getInstances(classe, true).getFlattened()) {
+//				System.out.println("iiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+				if (ind.toString().indexOf("#" + instancia) != -1) {
+					retorno += ind + " ----------- " + classe + "\n";
+					System.out.println(ind + " ----------- " + classe);
 				}
 			}
 		}
+		return retorno;
 	}
 
 	/**
@@ -238,17 +199,17 @@ public class Ontologia {
 	 * @throws Exception
 	 */
 	public void mostrarPropriedadesInstancias() throws Exception {
-		Set<OWLLogicalAxiom> axiomas = _ontologia.getLogicalAxioms();
-		java.util.Iterator<OWLLogicalAxiom> iterator = axiomas.iterator();
+		java.util.Iterator<OWLLogicalAxiom> iterator = ontologia.getLogicalAxioms().iterator();
 		while (iterator.hasNext()) {
 			OWLAxiom axioma = iterator.next();
 			if (!axioma.getIndividualsInSignature().isEmpty()) {
-				System.out.println("instancia: " + axioma.getIndividualsInSignature());
+				System.out.println("Instancia: " + axioma.getIndividualsInSignature());
 				System.out.println(axioma.getDataPropertiesInSignature());
 				System.out.println(axioma.getObjectPropertiesInSignature());
-				System.out.println("classe: " + axioma.getClassesInSignature());
+				System.out.println("Classe da instancia: " + axioma.getClassesInSignature());
 			}
 		}
+
 	}
 
 	/**
@@ -259,15 +220,16 @@ public class Ontologia {
 	 * @return Resultado da iteração
 	 */
 	public String getResultadoPorInstancia(String instancia) {
+		java.util.Iterator<OWLLogicalAxiom> iterator = ontologia.getLogicalAxioms().iterator();
 		String classes = "";
-		Set<OWLLogicalAxiom> axioma = _ontologia.getLogicalAxioms();
-		java.util.Iterator<OWLLogicalAxiom> iterator = axioma.iterator();
 		while (iterator.hasNext()) {
-			OWLAxiom oxioma = iterator.next();
-			if (!oxioma.getIndividualsInSignature().isEmpty() && !oxioma.getClassesInSignature().isEmpty()) {
-				if (oxioma.getIndividualsInSignature().toString().indexOf(instancia) != -1) { // achou a classe certa
-					for (OWLClass owlClasse : oxioma.getClassesInSignature()) {
-						classes += owlClasse.toString() + "\n";
+			OWLAxiom axioma = iterator.next();
+			if (!axioma.getIndividualsInSignature().isEmpty() && !axioma.getClassesInSignature().isEmpty()) {
+				System.out.println(axioma.getIndividualsInSignature().toString());
+				if (axioma.getIndividualsInSignature().toString().indexOf(instancia) != -1) {
+					for (OWLClass owlClass : axioma.getClassesInSignature()) {
+						System.out.println("class " + axioma.getClassesInSignature());
+						classes += owlClass.toString() + "\n";
 					}
 				}
 			}
@@ -276,11 +238,27 @@ public class Ontologia {
 	}
 
 	/**
+	 * Método que salva a ontologia num arquivo.
+	 * 
+	 * @throws IOException
+	 * @throws OWLOntologyStorageException
+	 * @throws OWLOntologyCreationException
+	 */
+	public void atualizarOntologia(String arquivo) throws IOException, OWLOntologyStorageException {
+		File output = new File(arquivo);
+		if (!output.exists())
+			output.createNewFile();
+		output = output.getAbsoluteFile();
+		OutputStream stream = new FileOutputStream(output);
+		gerenciador.saveOntology(ontologia, gerenciador.getOntologyFormat(ontologia), stream);
+	}
+
+	/**
 	 * Método que mostra todas as classes da ontologia.
 	 */
 	public void mostrarClasses() {
-		for (OWLClass owlClasse : _ontologia.getClassesInSignature()) {
-			System.out.println(owlClasse);
+		for (OWLClass classe : ontologia.getClassesInSignature()) {
+			System.out.println(classe);
 		}
 	}
 
